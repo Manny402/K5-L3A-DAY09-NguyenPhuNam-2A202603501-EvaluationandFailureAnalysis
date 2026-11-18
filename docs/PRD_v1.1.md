@@ -2,7 +2,7 @@
 
 ## 1. Thay đổi so với v1.0
 
-Chức năng xử lý yêu cầu hoàn tiền của Lab 8 giữ nguyên. v1.1 xác định cách đo kết quả và quyết định có cho bản mới đi tiếp. Mọi số liệu bên dưới lấy từ report sinh bằng `lab9.eval`, eval set SHA `f71310b328b1`, spec v1.0.
+Chức năng xử lý yêu cầu hoàn tiền của Lab 8 giữ nguyên. v1.1 xác định cách đo kết quả và quyết định có cho bản mới đi tiếp. Mọi số liệu bên dưới lấy từ report sinh bằng `lab9.eval`, eval set SHA `eacb642055c0`, spec v1.0.
 
 ## 2. Phạm vi pilot
 
@@ -10,7 +10,7 @@ Pilot offline gồm 14 public claims LogiX-VN: giao trễ, hàng hỏng, thiếu
 
 ## 3. Định nghĩa chạy đúng và ngưỡng release
 
-Baseline `E-swarm-20261118-f713`; report PR đối chứng `E-fixed-20261118-f713` và hồi quy `E-seeded_regression-20261118-f713`.
+Baseline `E-swarm-20261118-eacb`; report PR đối chứng `E-fixed-20261118-eacb` và hồi quy `E-seeded_regression-20261118-eacb`.
 
 | Metric | Loại | Ngưỡng từ spec | Chặn release? | Baseline |
 |---|---|---|---|---:|

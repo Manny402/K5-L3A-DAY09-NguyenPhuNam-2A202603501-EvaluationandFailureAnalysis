@@ -2,9 +2,9 @@
 
 ## Thiết lập và bằng chứng
 
-- Code: working tree trên nhánh `starter/d09`, bắt đầu từ commit `9e1549a`; chưa commit thay đổi Lab 9. Agent gốc là `src/lab8/shapes/swarm_reference.py` của Day 8, không chỉnh sửa.
-- Eval set: `v1`, SHA `f71310b328b1`, 14 claim công khai × seeds 11/22/33/44/55 = 70 trial. Nhãn nằm trong `labels_v1.json`, tách khỏi item. Metric spec v1.0; Python 3.12.4; MockLLM.
-- Report do `lab9.eval` sinh: baseline `E-swarm-20261118-f713`, bản sửa `E-fixed-20261118-f713`, hồi quy `E-seeded_regression-20261118-f713`. Mỗi report có đủ 70 cặp `(item_id, seed)`.
+- Code: nhánh `starter/d09` của fork, bắt đầu từ commit gốc `9e1549a`. Agent gốc là `src/lab8/shapes/swarm_reference.py` của Day 8, không chỉnh sửa.
+- Eval set: `v1`, SHA `eacb642055c0`, 14 claim công khai × seeds 11/22/33/44/55 = 70 trial. Nhãn nằm trong `labels_v1.json`, tách khỏi item. Metric spec v1.0; Python 3.12.4; MockLLM.
+- Report do `lab9.eval` sinh: baseline `E-swarm-20261118-eacb`, bản sửa `E-fixed-20261118-eacb`, hồi quy `E-seeded_regression-20261118-eacb`. Mỗi report có đủ 70 cặp `(item_id, seed)`.
 
 ## Kết quả
 

@@ -2,7 +2,7 @@
 
 | Trường | Bằng chứng |
 |---|---|
-| Trial | `seeded_regression C-002@11`, report `E-seeded_regression-20261118-f713` |
+| Trial | `seeded_regression C-002@11`, report `E-seeded_regression-20261118-eacb` |
 | Triệu chứng | Lab 8 grader: `status resolved != denied`; ledger ghi 20.000đ, nhãn là 0đ. |
 | Bước sai đầu tiên | Event 3: `model_override {"delay_days": 5}` sau khi event 2 `investigator` đã đọc dữ kiện đơn từ DB. |
 | Vì sao là bước đầu tiên | Event 1 chỉ tạo handoff; event 2 thu thập dữ liệu. Event 3 thay DB bằng số ngày trong ticket; quote ở event 4 và refund sau đó là hệ quả. |
