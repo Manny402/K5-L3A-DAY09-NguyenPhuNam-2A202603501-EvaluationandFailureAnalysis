@@ -60,3 +60,9 @@ Thêm hoặc thay item/nhãn thì tăng eval-set version và sinh lại baseline
 |---|---|---|
 | Product | Chưa chỉ định | — |
 | Eval owner | Chủ fork cá nhân | 2026-11-18 |
+
+## Phụ lục đánh giá v2 (M5–M7)
+
+Eval set v2 mở rộng lên 28 item × 5 seed, SHA `ca1fa5324602`; baseline `E-swarm-20261118-ca1f` có `pass_rate=0,9786` và `pass_hat_5=0,8929`. Spec v2.0 chặn release khi `pass_hat_5 < 0,80` hoặc slice `money_movement`/`adversarial` vi phạm ngưỡng và CI; thêm FM-09 về truy cập chéo principal vào taxonomy.
+
+Gate kiểm tra số hàng, cặp item/seed, lỗi evaluator, giá trị thiếu/không hữu hạn, slice tag và việc nới spec trên cùng eval-set version trước khi so metric. A/A trên hai bộ seed MockLLM cho Δ = 0; scorecard công khai chặn 3/3 regression, 0 báo nhầm và 4/4 trap. Ngưỡng v2 cần được đo lại với model thật và tập held-out trước khi áp dụng ngoài pilot.
