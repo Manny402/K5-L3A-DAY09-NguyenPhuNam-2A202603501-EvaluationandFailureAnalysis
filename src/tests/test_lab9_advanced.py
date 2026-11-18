@@ -74,3 +74,30 @@ def test_slice_check_blocks_a_slice_below_floor():
     spec = dict(SPEC, slices=[{"name": "denial", "metric": "pass_rate", "min": 0.9, "blocking": True}])
     blocked, _ = gate.slice_check(_report(rows, {"pass_rate": 0.75}), base, spec)
     assert blocked == ["slice:denial/pass_rate"]
+
+
+def test_integrity_rejects_duplicate_and_missing_grader_result():
+    from lab9 import gate
+    base = _report(copy.deepcopy(ROWS), {"pass_rate": 1.0})
+    duplicate = _report(copy.deepcopy(ROWS), {"pass_rate": 1.0})
+    duplicate["rows"][-1] = copy.deepcopy(duplicate["rows"][0])
+    assert any("duplicate" in p for p in gate.integrity_check(duplicate, base, SPEC))
+    crashed = _report(copy.deepcopy(ROWS), {"pass_rate": 1.0})
+    crashed["rows"][0]["pass_rate"] = None
+    crashed["evaluator_failures"] = ["E-000@1:TrialPass:crashed"]
+    assert any("evaluator" in p for p in gate.integrity_check(crashed, base, SPEC))
+    assert any("missing pass_rate" in p for p in gate.integrity_check(crashed, base, SPEC))
+
+
+def test_integrity_rejects_slice_relabelling_and_slice_ratchet():
+    from lab9 import gate
+    base = _report(copy.deepcopy(ROWS), {"pass_rate": 1.0})
+    relabelled = _report(copy.deepcopy(ROWS), {"pass_rate": 1.0})
+    relabelled["rows"][0]["slices"] = []
+    assert any("slice tags" in p for p in gate.integrity_check(relabelled, base, SPEC))
+    strict = dict(SPEC, slices=[{"name": "denial", "metric": "pass_rate", "min": 0.9,
+                                 "no_significant_drop": True, "blocking": True}])
+    loose = copy.deepcopy(strict)
+    loose["slices"][0]["min"] = 0.5
+    loose["slices"][0].pop("no_significant_drop")
+    assert any("slice denial/pass_rate" in p for p in gate.integrity_check(base, base, loose, strict))
